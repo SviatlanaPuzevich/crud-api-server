@@ -6,14 +6,7 @@ import { ServerResponse } from "http";
 
 export const userRouter = new Router("/api/users");
 
-let users: User[] = [
-  {
-    id: "db5b6794-c3f1-4011-8bcd-9aa9d5d4d333",
-    name: "John Doe",
-    age: 23,
-    hobbies: ["surfing"],
-  },
-];
+let users: User[] = [];
 
 userRouter.get("/", async (_request, response) => {
   response.writeHead(200, { "Content-Type": "application/json" });
