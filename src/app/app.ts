@@ -1,8 +1,10 @@
 import http from "node:http";
 import { URL } from "node:url";
 import { RouteDispatcher } from "../router/routeDispatcher";
+import { userRouter } from "../controllers/userController";
 
 const routeDispatcher = new RouteDispatcher();
+routeDispatcher.registerRouter(userRouter);
 
 export const app = http.createServer((request, response) => {
   if (!request.url || !request.method) {
