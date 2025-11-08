@@ -1,0 +1,13 @@
+#Get user by valid id
+GET http://localhost:3000/api/users/db5b6794-c3f1-4011-8bcd-9aa9d5d4d333
+Content-Type: application/json
+
+###
+#Invalid id(not uuid)
+GET http://localhost:3000/api/users/123
+Content-Type: application/json
+
+###
+#No user with such id
+GET http://localhost:3000/api/users/db5b6794-c3f1-4011-8bcd-9aa9d5d4d555
+Content-Type: application/json

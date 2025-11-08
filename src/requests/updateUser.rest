@@ -1,0 +1,33 @@
+#UPDATE user by valid id
+PUT http://localhost:3000/api/users/db5b6794-c3f1-4011-8bcd-9aa9d5d4d333
+Content-Type: application/json
+
+{
+  "id": "db5b6794-c3f1-4011-8bcd-9aa9d5d4d333",
+  "name": "John Doe",
+  "age": 29,
+  "hobbies": ["surfing"]
+}
+
+###
+#User with invalid id
+PUT http://localhost:3000/api/users/db5b6794-c3f1-4011-8bcd-9aa9d5d4d555
+Content-Type: application/json
+
+{
+  "id": "db5b6794-c3f1-4011-8bcd-9aa9d5d4d555",
+  "name": "John Doe",
+  "age": 29,
+  "hobbies": ["surfing"]
+}
+
+###
+#User with invalid body
+PUT http://localhost:3000/api/users/db5b6794-c3f1-4011-8bcd-9aa9d5d4d333
+Content-Type: application/json
+
+{
+  "id": "db5b6794-c3f1-4011-8bcd-9aa9d5d4d333",
+  "age": 29,
+  "hobbies": []
+}

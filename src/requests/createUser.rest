@@ -1,0 +1,30 @@
+#Create valid user
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+  "name": "Harry Potter",
+  "age": 12,
+  "hobbies": ["magic"]
+}
+
+###
+#Invalid user
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+  "name": "Harry Potter",
+  "age": -5,
+  "hobbies": ["magic"]
+}
+
+###
+#Invalid user
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+  "name": "Harry Potter",
+  "age": 12
+}
