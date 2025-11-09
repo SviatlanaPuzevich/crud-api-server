@@ -1,5 +1,7 @@
 import request from 'supertest';
-import {app} from '../../src/app/app';
+import {createApp} from '../../src/app/app';
+
+const app = createApp();
 
 describe('users API tests', () => {
     it('GET /users → returns empty list of users', async () => {

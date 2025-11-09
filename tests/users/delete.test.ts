@@ -1,6 +1,8 @@
 import request from "supertest";
-import { app } from "../../src/app/app";
+import {createApp} from "../../src/app/app";
 import {NewUser} from "../../src/types";
+
+const app = createApp();
 
 describe('users API tests', () => {
     it('DELETE /users/{id} → successfully deletion of a existing user', async () => {

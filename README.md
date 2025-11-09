@@ -75,6 +75,11 @@ npm run start:dev
 npm run start:prod
 ```
 
+### Cluster mode
+```bash
+npm run start:cluster
+```
+
 The server uses **webpack** for production builds.
 
 ## Testing

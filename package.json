@@ -18,6 +18,7 @@
     "build": "webpack",
     "start:prod": "npm run build && node dist/server.js",
     "start:dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+    "start:cluster": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/cluster/cluster.ts",
     "lint": "eslint \"src/**/*.ts\" --fix",
     "format": "prettier --write \"src/**/*.ts\"",
     "test": "jest --runInBand"
