@@ -19,13 +19,12 @@ userRouter.get("/{userId}", async (_request, response, params) => {
   response.end(JSON.stringify(user));
 });
 
-userRouter.post("/", async (request, response) => {
+userRouter.post("/", async (request , response) => {
   try {
     const uuid = uuidv4();
     const user: NewUser = await getBody<NewUser>(request, isNewUser);
     const newUserObj = { id: uuid, ...user };
     store.users.push(newUserObj);
-    store.publish();
     response.writeHead(201, { "Content-Type": "application/json" });
     response.end(JSON.stringify(newUserObj));
   } catch (error) {
@@ -42,7 +41,6 @@ userRouter.put("/{userId}", async (request, response, params) => {
     const updatedData: User = await getBody<User>(request, isUser);
     const updatedUser: User = { ...updatedData, id: existingUser.id };
     store.users = store.users.map((u) => (u.id === updatedUser.id ? updatedUser : u));
-    store.publish();
     response.writeHead(200, { "Content-Type": "application/json" });
     response.end(JSON.stringify(updatedUser));
   } catch (error) {
@@ -55,7 +53,6 @@ userRouter.delete("/{userId}", async (_request, response, params) => {
   const user = extractUser(response, params);
   if (!user) return;
   store.users = store.users.filter((u) => u.id !== user.id);
-  store.publish();
   response.writeHead(204, { "Content-Type": "application/json" });
   response.end();
 });
